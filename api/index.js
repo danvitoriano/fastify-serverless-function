@@ -9,7 +9,7 @@ app.get('/', async (req, reply) => {
 })
 
 app.post('/api/hello', async (req, reply) => {
-  return { hello: 'world' }
+  return { hello: req.body.name }
 })
 
 export default async function handler(req, reply) {
