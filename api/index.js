@@ -8,6 +8,10 @@ app.get('/', async (req, reply) => {
   return reply.status(200).type('text/html').send(html)
 })
 
+app.post('/api/hello', async (req, reply) => {
+  return { hello: 'world' }
+})
+
 export default async function handler(req, reply) {
   await app.ready()
   app.server.emit('request', req, reply)
