@@ -5,9 +5,8 @@ const app = Fastify({
   logger: true,
 })
 await fastify.register(cors, { 
-  origin: 'https://sites-orgulho-tech--staging.decocdn.com/?__cb=W%2Fqknjyflykz%40qknjyflykz',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: ['https://sites-orgulho-tech--staging.decocdn.com'], // Replace with allowed origin(s)
+  methods: ['POST'], // Specify allowed methods (e.g., GET, POST)
 })
 
 app.get('/', async (req, reply) => {
