@@ -5,7 +5,7 @@ const app = Fastify({
   logger: true,
 })
 await fastify.register(cors, { 
-  origin: '*',
+  origin: 'https://sites-orgulho-tech--staging.decocdn.com/?__cb=W%2Fqknjyflykz%40qknjyflykz',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 })
