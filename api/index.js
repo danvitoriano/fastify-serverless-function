@@ -7,7 +7,7 @@ const app = Fastify({
 await fastify.register(cors, { 
   origin: '*',
   methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin', 'X-HTTP-Method-Override', 'X-Forwarded-For'],
 })
 
 app.get('/', async (req, reply) => {
