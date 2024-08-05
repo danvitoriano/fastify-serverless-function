@@ -1,12 +1,7 @@
 import Fastify from 'fastify'
-import cors from '@fastify/cors'
 
 const app = Fastify({
   logger: true,
-})
-await fastify.register(cors, { 
-  origin: ['https://sites-orgulho-tech--staging.decocdn.com'], 
-  methods: ['POST'],
 })
 
 app.get('/', async (req, reply) => {
