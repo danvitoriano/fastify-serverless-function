@@ -1,7 +1,13 @@
 import Fastify from 'fastify'
+import cors from '@fastify/cors'
 
 const app = Fastify({
   logger: true,
+})
+await fastify.register(cors, { 
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 })
 
 app.get('/', async (req, reply) => {
