@@ -5,20 +5,21 @@ const app = Fastify({
   logger: true,
 })
 
-app.use((req, res, next) => {
-  // res.setHeader('Access-Control-Allow-Origin', 'https://www.orgulhotech.com.br'); 
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
+app.route({
+  method: 'POST',
+  url: '/api/email/subscribe',
+  handler: (request, reply) => {
+    reply.header('Access-Control-Allow-Origin', 'https://sites-orgulho-tech--staging.decocdn.com');  // Replace with allowed origin(s)
+    reply.header('Access-Control-Allow-Methods', 'POST'); // Specify allowed methods
+
+    
+    return { email: request.body.email }
+    
+  }
 });
 
 app.get('/', async (req, reply) => {
   return reply.status(200).type('text/html').send()
-})
-
-app.post('/api/email/subscribe', async (req, reply) => {
-  return { email: req.body.email }
 })
 
 export default async function handler(req, reply) {
